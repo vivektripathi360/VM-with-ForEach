@@ -114,8 +114,8 @@ vms = {
     location = "centralindia"
     resource_group_name = "test-rg"
     size = "Standard_F2"
-    admin_username = "vikram"
-    admin_password = "Vikram@12345678"
+    admin_username = "Vivek"
+    admin_password = "Vivek@1234567"
     nic_name = "frontend-nic"
   }
   backend-vm = {
@@ -123,8 +123,8 @@ vms = {
     location = "centralindia"
     resource_group_name = "test-rg"
     size = "Standard_F2"
-    admin_username = "vikram"
-    admin_password = "Vikram@12345678"
+    admin_username = "vivek"
+    admin_password = "Vivek@12345678"
     nic_name = "backend-nic"
   }
 
