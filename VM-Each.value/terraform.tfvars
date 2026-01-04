@@ -78,15 +78,15 @@ backend-nsg = {
 
 nics = {
   frontend-nic = {
-    name = "frontend_nic"
+    name = "front_nic"
     location = "centralindia"
     resource_group_name = "test-rg1"
     subnet_name = "frontend-subnet"
     pip_name = "frontend-pip"
   }
  backend-nic = {
-    name = "backend_nic"
-    location = "centralindia"
+    name = "back_nic"
+    location = "eastus"
     resource_group_name = "test-rg1"
     subnet_name = "backend-subnet"
     pip_name = "backend-pip"
