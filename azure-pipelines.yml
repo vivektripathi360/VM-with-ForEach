@@ -1,7 +1,7 @@
 trigger: none
 
 pool:
-  name: pool   # ya vmImage: 'windows-latest'
+  name: pool
 
 stages:
 - stage: terraform
