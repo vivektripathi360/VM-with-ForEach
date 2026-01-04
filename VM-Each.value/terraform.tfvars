@@ -97,13 +97,13 @@ pips = {
   frontend-pip = {
     name = "frontend-pip"
     resource_group_name = "test-rg"
-    location = "centralindia"
+    location = "eastus"
     allocation_method = "Static"
   }
     backend-pip = {
     name = "backend-pip"
     resource_group_name = "test-rg"
-    location = "centralindia"
+    location = "eastus"
     allocation_method = "Static"
   }
 }
