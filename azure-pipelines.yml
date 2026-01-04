@@ -21,6 +21,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/VM-Each.value'
         backendServiceArm: 'vk-service'
         backendAzureRmResourceGroupName: 'vk-group'
         backendAzureRmStorageAccountName: 'vivek007'
@@ -32,6 +33,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'plan'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/VM-Each.value'
         environmentServiceNameAzureRM: 'vk-service'
 
     - task: TerraformTask@5
@@ -39,5 +41,6 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'apply'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/VM-Each.value'
         commandOptions: '-auto-approve'
         environmentServiceNameAzureRM: 'vk-service'
