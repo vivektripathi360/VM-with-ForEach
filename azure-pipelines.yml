@@ -1,0 +1,46 @@
+trigger: none
+
+pool:
+  name: pool   # ya vmImage: 'windows-latest'
+
+stages:
+- stage: terraform
+  displayName: Terraform Stage
+  jobs:
+  - job: terraform_job
+    displayName: Terraform Full Flow
+    steps:
+    - checkout: self
+
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: 'latest'
+
+    - task: TerraformTask@5
+      displayName: Terraform Init
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/Dev'
+        backendServiceArm: 'vk-service'
+        backendAzureRmResourceGroupName: 'vk-group'
+        backendAzureRmStorageAccountName: 'vivek007'
+        backendAzureRmContainerName: 'vk-cont'
+        backendAzureRmKey: 'terraform.tfstate'
+
+    - task: TerraformTask@5
+      displayName: Terraform Plan
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/Dev'
+        environmentServiceNameAzureRM: 'vk-service'
+
+    - task: TerraformTask@5
+      displayName: Terraform Apply
+      inputs:
+        provider: 'azurerm'
+        command: 'apply'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/Dev'
+        commandOptions: '-auto-approve'
+        environmentServiceNameAzureRM: 'vk-service'
